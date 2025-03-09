@@ -150,10 +150,26 @@ class Family:
 my_family = Family()
 my_family.info()
 print('Try to buy a house')
-my_family.buy_house(10**6)
+my_family.buy_house(10 ** 6)
 if not my_family.have_a_house:
     my_family.earn_money(800000)
     print('Try to buy a house again')
-    my_family.buy_house(10**6, 10)
+    my_family.buy_house(10 ** 6, 10)
 
 my_family.info()
+
+
+class Employee:  # Определение класса Employee
+
+    def __init__(self, name, salary):  # Конструктор класса, который вызывается при создании нового объекта
+        self.name = name  # Инициализация атрибута name для текущего объекта
+        self.salary = salary  # Инициализация атрибута salary для текущего объекта
+
+    def print_info(self):  # Метод для вывода информации о сотруднике
+        print('Name: {}\nSalary: {}'.format(self.name, self.salary))  # Вывод имени и зарплаты сотрудника
+
+
+emp_1 = Employee('Tom', 10000)  # Создание первого объекта (экземпляра) класса Employee с именем 'Tom' и зарплатой 10000
+emp_2 = Employee('Bob', 20000)  # Создание второго объекта (экземпляра) класса Employee с именем 'Bob' и зарплатой 20000
+emp_1.print_info()  # Вывод информации о первом сотруднике (emp_1)
+emp_2.print_info()  # Вывод информации о втором сотруднике (emp_2)
