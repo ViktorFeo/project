@@ -1,4 +1,5 @@
 # 1
+from tkinter.font import names
 
 # file = open('numbers.txt', 'r', encoding='utf-8')
 # num_count = 0
@@ -336,3 +337,34 @@
 # Module 24(11)
 
 # 1
+# import random
+#
+#
+# class Warrior:
+#     def __init__(self, name):
+#         self.name = name
+#         self.health = 100
+#
+#     def attack(self, other):
+#         other.health -= 20
+#         print(f"{self.name} атаковал {other.name}. У {other.name} осталось {other.health} здоровья.")
+#
+#     def is_alive(self):
+#         return self.health > 0
+#
+#
+# def fight(warrior1, warrior2):
+#     while warrior1.is_alive() and warrior2.is_alive():
+#         attacker, defender = random.choice([(warrior1, warrior2), (warrior2, warrior1)])
+#         attacker.attack(defender)
+#
+#     if warrior1.is_alive():
+#         print(f'Победил {warrior1.name}!')
+#     else:
+#         print(f'Победил {warrior2.name}!')
+#
+#
+# warrior1 = Warrior('Воин 1')
+# warrior2 = Warrior('Воин 2')
+#
+# fight(warrior1, warrior2)
