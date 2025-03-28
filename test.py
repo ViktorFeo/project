@@ -1,4 +1,6 @@
 # 1
+from gettext import textdomain
+
 
 # file = open('numbers.txt', 'r', encoding='utf-8')
 # num_count = 0
@@ -383,6 +385,7 @@ my_circle = Circle(30)
 
 print(my_circle.area)
 
+
 # 2
 # import random
 #
@@ -510,29 +513,145 @@ print(my_circle.area)
 # for child in children:
 #     child.info()
 
-class MyClass:
-    def __init__(self, value):
-        self.value = value
 
-    def __add__(self, other):
-        return MyClass(self.value + other.value)
+# 4 с магическим методом __add__(self, other)
+# class Water:
+#     def __add__(self, other):
+#         if isinstance(other, Air): return Storm()
+#         if isinstance(other, Fire): return Steam()
+#         if isinstance(other, Earth): return Mud()
+#         return None
+#
+#     def __str__(self):
+#         return "Вода"
+#
+#
+# class Air:
+#     def __add__(self, other):
+#         if isinstance(other, Water): return Storm()
+#         if isinstance(other, Fire): return Lightning()
+#         if isinstance(other, Earth): return Dust()
+#         return None
+#
+#     def __str__(self):
+#         return "Воздух"
+#
+#
+# class Fire:
+#     def __add__(self, other):
+#         if isinstance(other, Water): return Steam()
+#         if isinstance(other, Air): return Lightning()
+#         if isinstance(other, Earth): return Lava()
+#         return None
+#
+#     def __str__(self):
+#         return "Огонь"
+#
+#
+# class Earth:
+#     def __add__(self, other):
+#         if isinstance(other, Water): return Mud()
+#         if isinstance(other, Air): return Dust()
+#         if isinstance(other, Fire): return Lava()
+#         return None
+#
+#     def __str__(self):
+#         return "Земля"
+#
+#
+# class Storm:
+#     def __str__(self): return "Шторм"
+#
+#
+# class Steam:
+#     def __str__(self): return "Пар"
+#
+#
+# class Mud:
+#     def __str__(self): return "Грязь"
+#
+#
+# class Lightning:
+#     def __str__(self): return "Молния"
+#
+#
+# class Dust:
+#     def __str__(self): return "Пыль"
+#
+#
+# class Lava:
+#     def __str__(self): return "Лава"
+#
+#
+# element_classes = {
+#     '1': Water(),
+#     '2': Air(),
+#     '3': Fire(),
+#     '4': Earth()
+# }
+#
+#
+# def print_menu():
+#     print("\nВыберите элементы для смешивания:")
+#     print("1 - Вода")
+#     print("2 - Воздух")
+#     print("3 - Огонь")
+#     print("4 - Земля")
+#     print("0 - Выход")
+#
+#
+# while True:
+#     print_menu()
+#
+#     choice1 = input("Первый элемент (1-4): ")
+#     if choice1 == '0': break
+#     if choice1 not in element_classes:
+#         print("Некорректный выбор! Попробуйте снова.")
+#         continue
+#
+#     choice2 = input("Второй элемент (1-4): ")
+#     if choice2 == '0': break
+#     if choice2 not in element_classes:
+#         print("Некорректный выбор! Попробуйте снова.")
+#         continue
+#
+#     elem1 = element_classes[choice1]
+#     elem2 = element_classes[choice2]
+#
+#     result = elem1 + elem2
+#
+#     print(f"\nРезультат смешивания {elem1} + {elem2}:")
+#     print(result)
 
-a = MyClass(10)
-b = MyClass(20)
-c = a + b
-print(c.value)
+# 5
+class Human:
+    def __init__(self, name, satiety_degree, home):
+        self.name = name
+        self.satiety_degree = satiety_degree
+        self.home = home
 
-class Example_1:
-    def __add__(self, other):
-        return Example_2()
+    def eat(self):
+        # + сытость - еда
+        pass
 
-class Example_2:
-    answer = 'сложили два класса и вывели'
+    def work(self):
+        # - сытость + деньги
+        pass
 
-a = Example_1()
-b = Example_2()
-c = a + b
-print(c.answer)
+    def play(self):
+        # -сытость
+        pass
 
-# 4
+    def buy_products(self):
+        # + еда - деньги
+        pass
+
+    def live_through_the_day(self):
+        pass
+
+class Home:
+    def __init__(self,fridge_with_food=50,money_cabinet=0):
+        self.fridge_with_food = fridge_with_food
+        self.money_cabinet = money_cabinet
+
 
