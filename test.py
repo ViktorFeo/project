@@ -420,92 +420,119 @@ print(my_circle.area)
 #     ))
 
 # 3
-class Parent:
-    def __init__(self, name, age, list_of_children):
-        self.name = name
-        self.age = age
-        self.list_of_children = list_of_children
+# class Parent:
+#     def __init__(self, name, age, list_of_children):
+#         self.name = name
+#         self.age = age
+#         self.list_of_children = list_of_children
+#
+#     def provide_info(self):
+#         print(f"Родитель: {self.name}, Возраст: {self.age}")
+#         if self.list_of_children:
+#             print("Дети:")
+#             for child in self.list_of_children:
+#                 print(f"  {child.name}, Возраст: {child.age}")
+#         else:
+#             print("Детей нет.")
+#
+#     def calm_child(self, child):
+#         if child in self.list_of_children:
+#             child.state_of_calm = "да"
+#             print(f"{self.name} успокоил(а) {child.name}.")
+#         else:
+#             print(f"{child.name} не является ребенком {self.name}.")
+#
+#     def feed_child(self, child):
+#         if child in self.list_of_children:
+#             child.state_of_hunger = "нет"
+#             print(f"{self.name} покормил(а) {child.name}.")
+#         else:
+#             print(f"{child.name} не является ребенком {self.name}.")
+#
+#     def all_children_calm_and_fed(self):
+#         for child in self.list_of_children:
+#             if child.state_of_calm != "да" or child.state_of_hunger != "нет":
+#                 return False
+#         return True
+#
+#
+# class Child:
+#     def __init__(self, name, age, state_of_calm, state_of_hunger):
+#         self.name = name
+#         self.age = age
+#         self.state_of_calm = state_of_calm
+#         self.state_of_hunger = state_of_hunger
+#
+#     def info(self):
+#         print(f"Ребёнок: {self.name}, Возраст: {self.age}")
+#         print(f"  Спокоен(а): {self.state_of_calm}")
+#         print(f"  Голоден(а): {self.state_of_hunger}")
+#
+#
+# parent_name = input('Введите имя родителя: ')
+# parent_age = int(input('Введите возраст родителя: '))
+# num_children = int(input('Введите кол-во детей: '))
+#
+# children = []
+# for i in range(num_children):
+#     child_name = input(f'Введите имя ребенка {i + 1}: ')
+#
+#     while True:
+#         child_age = int(input(f'Введите возраст ребенка {i + 1}: '))
+#         if parent_age - child_age >= 16:
+#             break
+#         print(f"Ошибка: возраст {parent_name} должен быть больше возраста {child_name} хотя бы на 16 лет.")
+#
+#     state_of_calm = input(f'Ребенок {child_name} спокоен?: да/нет ')
+#     state_of_hunger = input(f'Ребенок {child_name} голоден?: да/нет ')
+#     child = Child(child_name, child_age, state_of_calm, state_of_hunger)
+#     children.append(child)
+#
+# parent = Parent(parent_name, parent_age, children)
+#
+# parent.provide_info()
+#
+# while not parent.all_children_calm_and_fed():
+#     print("\nТекущее состояние детей:")
+#     for child in children:
+#         child.info()
+#
+#     child_to_calm = input('\nВведите имя ребенка, которого нужно успокоить: ')
+#     child_to_feed = input('Введите имя ребенка, которого нужно покормить: ')
+#
+#     for child in children:
+#         if child.name == child_to_calm:
+#             parent.calm_child(child)
+#         if child.name == child_to_feed:
+#             parent.feed_child(child)
+#
+# print("\nВсе дети спокойны и сыты!")
+# for child in children:
+#     child.info()
 
-    def provide_info(self):
-        print(f"Родитель: {self.name}, Возраст: {self.age}")
-        if self.list_of_children:
-            print("Дети:")
-            for child in self.list_of_children:
-                print(f"  {child.name}, Возраст: {child.age}")
-        else:
-            print("Детей нет.")
+class MyClass:
+    def __init__(self, value):
+        self.value = value
 
-    def calm_child(self, child):
-        if child in self.list_of_children:
-            child.state_of_calm = "да"
-            print(f"{self.name} успокоил(а) {child.name}.")
-        else:
-            print(f"{child.name} не является ребенком {self.name}.")
+    def __add__(self, other):
+        return MyClass(self.value + other.value)
 
-    def feed_child(self, child):
-        if child in self.list_of_children:
-            child.state_of_hunger = "нет"
-            print(f"{self.name} покормил(а) {child.name}.")
-        else:
-            print(f"{child.name} не является ребенком {self.name}.")
+a = MyClass(10)
+b = MyClass(20)
+c = a + b
+print(c.value)
 
-    def all_children_calm_and_fed(self):
-        for child in self.list_of_children:
-            if child.state_of_calm != "да" or child.state_of_hunger != "нет":
-                return False
-        return True
+class Example_1:
+    def __add__(self, other):
+        return Example_2()
 
+class Example_2:
+    answer = 'сложили два класса и вывели'
 
-class Child:
-    def __init__(self, name, age, state_of_calm, state_of_hunger):
-        self.name = name
-        self.age = age
-        self.state_of_calm = state_of_calm
-        self.state_of_hunger = state_of_hunger
+a = Example_1()
+b = Example_2()
+c = a + b
+print(c.answer)
 
-    def info(self):
-        print(f"Ребёнок: {self.name}, Возраст: {self.age}")
-        print(f"  Спокоен(а): {self.state_of_calm}")
-        print(f"  Голоден(а): {self.state_of_hunger}")
+# 4
 
-
-parent_name = input('Введите имя родителя: ')
-parent_age = int(input('Введите возраст родителя: '))
-num_children = int(input('Введите кол-во детей: '))
-
-children = []
-for i in range(num_children):
-    child_name = input(f'Введите имя ребенка {i + 1}: ')
-
-    while True:
-        child_age = int(input(f'Введите возраст ребенка {i + 1}: '))
-        if parent_age - child_age >= 16:
-            break
-        print(f"Ошибка: возраст {parent_name} должен быть больше возраста {child_name} хотя бы на 16 лет.")
-
-    state_of_calm = input(f'Ребенок {child_name} спокоен?: да/нет ')
-    state_of_hunger = input(f'Ребенок {child_name} голоден?: да/нет ')
-    child = Child(child_name, child_age, state_of_calm, state_of_hunger)
-    children.append(child)
-
-parent = Parent(parent_name, parent_age, children)
-
-parent.provide_info()
-
-while not parent.all_children_calm_and_fed():
-    print("\nТекущее состояние детей:")
-    for child in children:
-        child.info()
-
-    child_to_calm = input('\nВведите имя ребенка, которого нужно успокоить: ')
-    child_to_feed = input('Введите имя ребенка, которого нужно покормить: ')
-
-    for child in children:
-        if child.name == child_to_calm:
-            parent.calm_child(child)
-        if child.name == child_to_feed:
-            parent.feed_child(child)
-
-print("\nВсе дети спокойны и сыты!")
-for child in children:
-    child.info()
